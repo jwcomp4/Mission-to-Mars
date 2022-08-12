@@ -31,6 +31,8 @@ def index():
 # the mars variable w/i the index funciton uses PyMongo to find mars collection in database 
 # the return tells Flask to use an HTML template using an index.html file
 # mars = mars tells Python to use the mars collection in MongoDB
+# create a new varible to hold the newly scraped data, ref. the scrape_all function in scrape.py
+
 
 # Setting up scraping route
 
@@ -40,7 +42,10 @@ def scrape():
     mars = mongo.db.mars
     mars_data = scraping.scrape_all()
     mars.update_one({}, {"$set":mars_data}, upsert=True)
+    # this line inserts data if an identical record doesn't exist
+    # upsert tells Mongo to create a new document if one doesn't exist.
     return redirect('/', code=302)
+    # this navigates back to the index.
 
 if __name__ == '__main__':
     app.run()
