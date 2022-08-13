@@ -13,7 +13,7 @@ app = Flask(__name__)
 
 # use flask_pymongo to set up mongo connection
 
-app.config['MONGO_URI'] = 'mongodb://localhost:27017/mars_app'
+app.config["MONGO_URI"] = "mongodb://localhost:27017/mars_app"
 # tells Python our app will connect to Mongo using a uniform resource identifier (URI)
 # the second half is the URL used to connect to Mongo. Tells port (27017) and db (mars_app)
 
@@ -21,11 +21,11 @@ mongo = PyMongo(app)
 
 # Setting up the homepage route:
 
-@app.route('/')
+@app.route("/")
 
 def index():
     mars = mongo.db.mars.find_one()
-    return render_template('index.html', mars=mars)
+    return render_template("index.html", mars=mars)
 # this initial route tells Flask what to display when looking at the homepage (index.html)
 # So, when we visit the web app's HTML page, we see the homepage.
 # the mars variable w/i the index funciton uses PyMongo to find mars collection in database 
@@ -36,7 +36,7 @@ def index():
 
 # Setting up scraping route
 
-@app.route('/scrape')
+@app.route("/scrape")
 
 def scrape():
     mars = mongo.db.mars
@@ -47,5 +47,5 @@ def scrape():
     return redirect('/', code=302)
     # this navigates back to the index.
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run()
