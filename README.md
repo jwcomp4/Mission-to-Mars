@@ -1,4 +1,4 @@
-# Module 10 Challenge : Mission to Mars
+# Mission to Mars: Web Scraping, MongoDB, and Flask
 
 ## Overview
 
@@ -8,7 +8,7 @@
     - A new photo of Mars from the Jet Propulsion Laboratory
     - Full resolution images of Mars hemispheres. 
 
-## Challenges within the Challenge
+## Challenges within the Analysis
 
 - Deliverable 1: Creating for loop to capture high resolution images
     - Creating this for loop required the following: 
